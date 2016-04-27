@@ -2,9 +2,9 @@
 set -e
 . /etc/os-release
 
-CPUINFO="===============\t=============================\n"
+CPUINFO=""
 VOLT=""
-RES=""
+RES="===============\t=============================\n"
 
 CPUINFO="${CPUINFO}\nOS\t${PRETTY_NAME}"
 CPUINFO="${CPUINFO}\n===============\t=============================\n"
@@ -16,12 +16,11 @@ for id in core sdram_c sdram_i sdram_p; do
     VOLT="${VOLT}\n$id\t$(vcgencmd measure_volts $id)\n"
 done
 
-RES=`cat << EoS
+RES=${RES}`cat << EoS
 ${CPUINFO}
 ${VOLT}
 EoS
 `
-
 RES="${RES}\n===============\t=============================\n"
 
 echo -e ${RES} | column -s $'\t' -t
