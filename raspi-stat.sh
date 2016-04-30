@@ -15,8 +15,8 @@ while true; do
     CPUINFO="${CPUINFO}\nClock core\t$(vcgencmd measure_clock core | cut -d = -f 2)Hz\n"
     CPUINFO="${CPUINFO}\nTemperature\t$(vcgencmd measure_temp | cut -d = -f 2)\n"
     CPUINFO="${CPUINFO}\n===== Mem =====\t=============================\n"
-    CPUINFO="${CPUINFO}\nMem arm\t$(vcgencmd get_mem arm | cut -d = -f 2)Hz\n"
-    CPUINFO="${CPUINFO}\nMem gpu\t$(vcgencmd get_mem gpu | cut -d = -f 2)Hz\n"
+    CPUINFO="${CPUINFO}\nMem arm\t$(vcgencmd get_mem arm | cut -d = -f 2)\n"
+    CPUINFO="${CPUINFO}\nMem gpu\t$(vcgencmd get_mem gpu | cut -d = -f 2)\n"
     CPUINFO="${CPUINFO}\n===== Volt ====\t=============================\n"
 
     for id in core sdram_c sdram_i sdram_p; do
