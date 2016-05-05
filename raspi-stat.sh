@@ -2,6 +2,23 @@
 set -e
 . /etc/os-release
 
+trap catch ERR
+trap finally EXIT
+trap handler SIGINT
+
+function catch() {
+    echo "Error"
+}
+
+function finally() {
+    echo "Normal End"
+}
+
+function handler() {
+    echo "Press Ctrl+C"
+    exit 0
+}
+
 while true; do
     clear
     CPUINFO=""
