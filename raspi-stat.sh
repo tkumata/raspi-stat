@@ -49,5 +49,5 @@ EoS
 
     echo -e ${RES} | column -s $'\t' -t
 
-    sleep 6
+    sleep 3
 done
