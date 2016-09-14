@@ -53,5 +53,5 @@ EoS
 
     echo -e ${RES} | column -s $'\t' -t
 
-    sleep 3
+    sleep 2
 done
