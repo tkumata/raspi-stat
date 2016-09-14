@@ -32,6 +32,9 @@ while true; do
     CPUINFO="${CPUINFO}\nClock core\t$(vcgencmd measure_clock core | cut -d = -f 2)Hz\n"
     CPUINFO="${CPUINFO}\nTemperature\t$(vcgencmd measure_temp | cut -d = -f 2)\n"
     CPUINFO="${CPUINFO}\nGovernor\t$(sudo cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)\n"
+    if [ "$(sudo cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)" = "ondemand" ]; then
+        CPUINFO="${CPUINFO}\nUP threshold\t$(cat /sys/devices/system/cpu/cpufreq/ondemand/up_threshold)%\n"
+    fi
     CPUINFO="${CPUINFO}\n== Mem =====\t==================\n"
     CPUINFO="${CPUINFO}\nMem arm\t$(vcgencmd get_mem arm | cut -d = -f 2)\n"
     CPUINFO="${CPUINFO}\nMem gpu\t$(vcgencmd get_mem gpu | cut -d = -f 2)\n"
