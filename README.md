@@ -2,6 +2,7 @@
 
 If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 
+
 ## cpu-config.sh
 
 This script sets some CPU values.
@@ -19,13 +20,13 @@ option:
  - powersave; Set to governor powersave.
  - ondemand; Set to governor ondemand and up_threshold to 50, sampling_down_factor to 50. This is default for Raspbian jessie.
 
-For example you can set crontab -e like following.
+For example you can set crontab -e or /etc/crontab like that.
 
 ```
 @reboot    /home/pi/script/path/cpu-config.sh myondemand
 ```
 
-I recommend myondemand. And I do not recommend ondemand. Because if up_threshold is 50, cpu freq increase soon very much. Even if device is idling. So temperature also increase.
+I recommend myondemand. And I do not recommend ondemand. Because up_threshold is 50 when ondemand and cpu freq increases soon very much. Even if device is idling. So temperature also increases.
 
 
 ## raspi-stat.sh
@@ -35,6 +36,7 @@ This script show status of Raspberry Pi 3. Statuses are OS name, version, CPU in
 ### myondemand
 
 ```
+idle
 ===== OS ======  ==================
 Name             Raspbian GNU/Linux
 Version          8 (jessie)
@@ -55,11 +57,34 @@ sdram_c          volt=1.2000V
 sdram_i          volt=1.2000V
 sdram_p          volt=1.2250V
 ===============  ==================
+
+load
+===== OS ======  ==================
+Name             Raspbian GNU/Linux
+Version          8 (jessie)
+===== CPU =====  ==================
+Clock arm        1200000000Hz
+Clock core       250000000Hz
+CPU Temperature  55.8 C
+GPU Temperature  56.9'C
+Governor         ondemand
+UP threshold     95
+Down threshold   90
+===== Mem =====  ==================
+Mem arm          944M
+Mem gpu          64M
+==== Volt =====  ==================
+core             volt=1.2000V
+sdram_c          volt=1.2000V
+sdram_i          volt=1.2000V
+sdram_p          volt=1.2250V
+===============  ==================
 ```
 
 ### performance
 
 ```
+idle
 ===== OS ======  ==================
 Name             Raspbian GNU/Linux
 Version          8 (jessie)
@@ -68,6 +93,26 @@ Clock arm        1200000000Hz
 Clock core       400000000Hz
 CPU Temperature  53.6 C
 GPU Temperature  53.7'C
+Governor         performance
+===== Mem =====  ==================
+Mem arm          944M
+Mem gpu          64M
+==== Volt =====  ==================
+core             volt=1.2000V
+sdram_c          volt=1.2000V
+sdram_i          volt=1.2000V
+sdram_p          volt=1.2250V
+===============  ==================
+
+load
+===== OS ======  ==================
+Name             Raspbian GNU/Linux
+Version          8 (jessie)
+===== CPU =====  ==================
+Clock arm        1200000000Hz
+Clock core       250000000Hz
+CPU Temperature  55.8 C
+GPU Temperature  56.3'C
 Governor         performance
 ===== Mem =====  ==================
 Mem arm          944M
