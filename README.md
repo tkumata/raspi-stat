@@ -1,9 +1,12 @@
 # Raspberry Pi 3 Some Tools
 
+I mistook a adjust because vcgencmd gets values slow. So I remake all.
+
+BTW you set to force_turbo=1 in /boot/config.txt, this script is useless.
+
 ## cpu-config.sh
 
-This script set up threshold of CPU when governor is ondemand. Default is 50 at booting up. Then system default is 95. Both values are an extreme very much. So CPU become hotter than OS is wheezy. Or perfomance is bad. This script set to 70. I seem this value is good.
-BTW default governor on jessie kernel 4.4.20 is ondemand.
+This script sets CPU some values.
 
 Usage:
 
@@ -12,9 +15,9 @@ Usage:
 ```
 
 option:
- - performance
- - ondemand
- - default
+ - performance; Set to governor performance.
+ - ondemand; Set to governor ondemand and up_threshold to 95, sampling_down_factor to 85.
+ - default; Set to governor ondemand and up_threshold to 50, sampling_down_factor to 50.
 
 For example you can set crontab -e like following.
 
@@ -30,46 +33,49 @@ This script show status of Raspberry Pi 3. Status are OS name, version, CPU info
 ondemand
 
 ```
-== OS ======  ==================
-Name          Raspbian GNU/Linux
-Version       8 (jessie)
-== CPU =====  ==================
-Clock arm     600000000Hz
-Clock core    250000000Hz
-Temperature   51.5'C
-Governor      ondemand
-UP threshold  70%
-== Mem =====  ==================
-Mem arm       880M
-Mem gpu       128M
-== Volt ====  ==================
-core          volt=1.2000V
-sdram_c       volt=1.2000V
-sdram_i       volt=1.2000V
-sdram_p       volt=1.2250V
-============  ==================
+==== OS ======  ==================
+Name            Raspbian GNU/Linux
+Version         8 (jessie)
+==== CPU =====  ==================
+Clock arm       600000000Hz
+Clock core      250000000Hz
+CPU Temp        54.7 C
+GPU Temp        55.3'C
+Governor        ondemand
+UP threshold    95
+Down threshold  85
+==== Mem =====  ==================
+Mem arm         880M
+Mem gpu         128M
+==== Volt ====  ==================
+core            volt=1.2000V
+sdram_c         volt=1.2000V
+sdram_i         volt=1.2000V
+sdram_p         volt=1.2250V
+==============  ==================
 ```
 
 performance
 
 ```
-== OS ======  ==================
-Name          Raspbian GNU/Linux
-Version       8 (jessie)
-== CPU =====  ==================
-Clock arm     1200000000Hz
-Clock core    400000000Hz
-Temperature   53.2'C
-Governor      performance
-== Mem =====  ==================
-Mem arm       880M
-Mem gpu       128M
-== Volt ====  ==================
-core          volt=1.2000V
-sdram_c       volt=1.2000V
-sdram_i       volt=1.2000V
-sdram_p       volt=1.2250V
-============  ==================
+==== OS ======  ==================
+Name            Raspbian GNU/Linux
+Version         8 (jessie)
+==== CPU =====  ==================
+Clock arm       1200000000Hz
+Clock core      250000000Hz
+CPU Temp        59.9 C
+GPU Temp        59.4'C
+Governor        performance
+==== Mem =====  ==================
+Mem arm         880M
+Mem gpu         128M
+==== Volt ====  ==================
+core            volt=1.2000V
+sdram_c         volt=1.2000V
+sdram_i         volt=1.2000V
+sdram_p         volt=1.2250V
+==============  ==================
 ```
 
 
