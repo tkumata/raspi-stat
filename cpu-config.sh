@@ -13,8 +13,14 @@ function exec_ondemand() {
     governor="$(sudo cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)"
     if [ "$governor" = "ondemand" ]; then
         sudo sh -c "echo 95 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold"
-        sudo sh -c "echo 85 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor"
+        sudo sh -c "echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor"
     fi
+}
+
+function exec_powersave() {
+    for i in 0 1 2 3; do
+        sudo sh -c "echo powersave > /sys/devices/system/cpu/cpu${i}/cpufreq/scaling_governor"
+    done
 }
 
 function exec_default() {
@@ -34,13 +40,15 @@ if [ $# -eq 1 ]; then
         performance)
             exec_performance
             ;;
-        ondemand)
+        myondemand)
             exec_ondemand
             ;;
-        default) exec_default
+        powersave)
+            exec_powersave
+            ;;
+        ondemand) exec_default
             ;;
         *)
-            echo "a"
             exit 1
             ;;
     esac
