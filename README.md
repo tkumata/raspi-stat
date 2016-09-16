@@ -11,6 +11,7 @@ Usage:
 
 ```
 ./update.sh
+Checking packages...
 取得:1 http://mirrordirector.raspbian.org jessie InRelease [14.9 kB]
 
 ...snip...
