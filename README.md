@@ -73,7 +73,7 @@ Example 2;
 ./cpu-config.sh performance
 ```
 
-I recommend myondemand. And I do not recommend ondemand. Because up_threshold is 50 when ondemand and cpu freq increases soon very much. Even if device is idling. So temperature also increases.
+I recommend myondemand. And I do not recommend ondemand. Because up_threshold is 50 when ondemand. And cpu freq increases soon very much. Even if device is idling. So temperature also increases. Or if you change governor ondemand > performance > ondemand, up_threshold is 95. But sampling_down_factor is 50. So OS keeps overclock for a while. As the result of it, temperature become hot.
 
 
 ## raspi-stat.sh
