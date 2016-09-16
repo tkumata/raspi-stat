@@ -3,6 +3,44 @@
 If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 
 
+## update.sh
+
+upgrade packages and check firmware version and update firmware.
+
+Usage:
+
+```
+./update.sh
+取得:1 http://mirrordirector.raspbian.org jessie InRelease [14.9 kB]
+...snip...
+無視 http://mirrordirector.raspbian.org jessie/rpi Translation-en
+9,105 kB を 52秒 で取得しました (173 kB/s)
+パッケージリストを読み込んでいます... 完了
+
+パッケージリストを読み込んでいます... 完了
+依存関係ツリーを作成しています
+状態情報を読み取っています... 完了
+アップグレードパッケージを検出しています ... 完了
+アップグレード: 0 個、新規インストール: 0 個、削除: 0 個、保留: 0 個。
+
+パッケージリストを読み込んでいます... 完了
+依存関係ツリーを作成しています
+状態情報を読み取っています... 完了
+アップグレード: 0 個、新規インストール: 0 個、削除: 0 個、保留: 0 個。
+
+パッケージリストを読み込んでいます... 完了
+依存関係ツリーを作成しています
+状態情報を読み取っています... 完了
+
+Checking firmware...
+Current: 4.4.20
+New: 4.4.21
+New firmware found.
+Do you update firmware? [Y/n]
+
+```
+
+
 ## cpu-config.sh
 
 This script sets some CPU values.
