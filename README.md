@@ -12,7 +12,9 @@ Usage:
 ```
 ./update.sh
 取得:1 http://mirrordirector.raspbian.org jessie InRelease [14.9 kB]
+
 ...snip...
+
 無視 http://mirrordirector.raspbian.org jessie/rpi Translation-en
 9,105 kB を 52秒 で取得しました (173 kB/s)
 パッケージリストを読み込んでいます... 完了
@@ -62,6 +64,12 @@ For example you can set crontab -e or /etc/crontab like that.
 
 ```
 @reboot    /home/pi/script/path/cpu-config.sh myondemand
+```
+
+Example 2;
+
+```
+./cpu-config.sh performance
 ```
 
 I recommend myondemand. And I do not recommend ondemand. Because up_threshold is 50 when ondemand and cpu freq increases soon very much. Even if device is idling. So temperature also increases.
