@@ -40,7 +40,38 @@ Current: 4.4.20
 New: 4.4.21
 New firmware found.
 Do you update firmware? [Y/n]
+y
+Backup icurrent firmware revision.
+Start rpi-update.
+ *** Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom
+ *** Performing self-update
+ *** Relaunching after update
+ *** Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom
+This update bumps to rpi-4.4.y linux tree
+Be aware there could be compatibility issues with some drivers
+Discussion here:
+https://www.raspberrypi.org/forums/viewtopic.php?f=29&t=144087
+##############################################################
+ *** Downloading specific firmware revision (this will take a few minutes)
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   168    0   168    0     0    168      0 --:--:-- --:--:-- --:--:--   168
+100 51.4M  100 51.4M    0     0   570k      0  0:01:32  0:01:32 --:--:-- 1061k
+ *** Updating firmware
+ *** Updating kernel modules
+ *** depmod 4.4.21+
+ *** depmod 4.4.21-v7+
+ *** Updating VideoCore libraries
+ *** Using HardFP libraries
+ *** Updating SDK
+ *** Running ldconfig
+ *** Storing current firmware revision
+ *** Deleting downloaded files
+ *** Syncing changes to disk
+ *** If no errors appeared, your firmware was successfully updated to f3ea581387825d5693bff075f800c00fe825c106
+ *** A reboot is needed to activate the new firmware
 
+Finish update.
 ```
 
 

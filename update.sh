@@ -20,24 +20,23 @@ if [ "$(echo "$FIRM_CHECK" | grep -i "kernel: bump to")" ]; then
 
     echo "Current: $CUR_VERSION"
     echo "New: $NEW_VERSION"
+    echo "New firmware found."
+    echo "Do you update firmware? [Y/n]"
 
-    if [ "$CUR_VERSION" = "$NEW_VERSION" ]; then
-        echo "No new firmware found."
-    else
-        echo "New firmware found."
-        echo "Do you update firmware? [Y/n]"
-        read answer
-        case "$answer" in
-            y|Y)
-                echo "Backup icurrent firmware revision."
-                cp /boot/.firmware_revision ~/firmware_revision."$CUR_VERSION".bak
-                echo "Start rpi-update."
-                sudo rpi-update
-                ;;
-            *)
-                ;;
-        esac
-    fi
+    read answer
+
+    case "$answer" in
+        y|Y)
+            echo "Backup icurrent firmware revision."
+            cp /boot/.firmware_revision ~/firmware_revision."$CUR_VERSION".bak
+            echo "Start rpi-update."
+            sudo rpi-update
+            ;;
+        *)
+            ;;
+    esac
+else
+    echo "No new firmware found."
 fi
 
 echo ""
