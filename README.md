@@ -204,6 +204,17 @@ sdram_p          volt=1.2250V
 ```
 
 
+## movie2gif.sh
+
+This is front-end script which converts movie file to optimized animation gif.
+
+Usage:
+
+```
+movie2gif.sh file
+```
+
+
 ## License
 
 MIT
