@@ -28,7 +28,8 @@ if [ "$(echo "$FIRM_CHECK" | grep -i "kernel: bump to")" ]; then
     case "$answer" in
         y|Y)
             echo "Backup icurrent firmware revision."
-            cp /boot/.firmware_revision ~/firmware_revision."$CUR_VERSION".bak
+            cp /boot/.firmware_revision ~/"$CUR_VERSION"_boot_.firmware_revision
+            cp /boot/config.txt ~/"$CUR_VERSION"_boot_config.txt
             echo "Start rpi-update."
             sudo rpi-update
             ;;
