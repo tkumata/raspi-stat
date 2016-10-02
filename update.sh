@@ -5,6 +5,8 @@ sudo apt-get update
 echo ""
 sudo apt-get upgrade -y
 echo ""
+sudo apt-get dist-upgrade -y
+echo ""
 sudo apt-get autoremove
 echo ""
 sudo apt-get autoclean
@@ -39,6 +41,20 @@ if [ "$(echo "$FIRM_CHECK" | grep -i "kernel: bump to")" ]; then
 else
     echo "No new firmware found."
 fi
+echo ""
+
+echo "Load preset infinality."
+sudo /etc/fonts/infinality/infctl.sh setstyle osx
 
 echo ""
-echo "Finish update."
+echo "Finish update.sh."
+
+# Reboot
+for i in {1..6}; do
+    c=$((6 - $i))
+    echo $c
+    if [ $c -eq 0 ]; then
+        echo "sudo reboot"
+    fi
+    sleep 1
+done
