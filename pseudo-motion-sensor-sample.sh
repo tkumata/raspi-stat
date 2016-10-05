@@ -18,14 +18,14 @@ COUNT="0"
 COUNT_THRESHOLD="5"
 
 function led_fire_on() {
-    if [ "$(pgrep -f 'led_fire.py')" = "" ]; then
+    if [ "$(pgrep -f 'led_fire')" = "" ]; then
         /home/pi/bin/led_fire/led_fire.py &
     fi
 }
 
 function led_fire_off() {
-    if [ "$(pgrep -f 'led_fire.py')" != "" ]; then
-        pkill -f 'led_fire.py'
+    if [ "$(pgrep -f 'led_fire')" != "" ]; then
+        pkill -f 'led_fire'
     fi
 }
 
