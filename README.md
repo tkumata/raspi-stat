@@ -3,6 +3,19 @@
 If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 
 
+## pseudo motion sensor
+
+貧乏なので人感センサーを買えません。そこで考えたのが Wi-Fi の RSSI です。下図のように手で覆っただけで変化があります。画像では 1sec 間隔ですが .1sec 間隔にするともっと精度が上がります。ラズパイと AP の間を通過するだけでも反応があるので個人的にはいけてる気がします。
+
+[![reduce RSSI](imgs/iwconfig_ss_1.png)]
+
+個人個人それぞれの判定アルゴリズムを組み込めば、"ギリギリ" 人感センサーができます。異論は認めます。
+
+今回はサンプルとして、ある領域に侵入したら LED が光るするようにしました。
+
+[![sample](imgs/IMG_0272.gif)]
+
+
 ## update.sh
 
 upgrade packages and check firmware version and update firmware.
