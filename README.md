@@ -2,16 +2,24 @@
 
 If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 
+## Table of Contents
 
-## pseudo motion sensor
+- [Pseudo Motion Sensor](#Pseudo Motion Sensor)
+- [Updating Script](#update.sh)
+- [CPU Configuration](#cpu-config.sh)
+- [Raspberry Pi Monitor](#raspi-stat.sh)
+- [Converting Animation Gif](#movie2gif.sh)
 
-貧乏なので人感センサーを買えません。そこで考えたのが Wi-Fi の RSSI です。下図のように手で覆っただけで変化があります。画像では 1sec 間隔ですが .1sec 間隔にするともっと精度が上がります。ラズパイと AP の間を通過するだけでも反応があるので個人的にはいけてる気がします。
+
+## Pseudo Motion Sensor
+
+貧乏なので人感センサーを買えません。そこで考えたのが Wi-Fi の RSSI です。下図のように手で覆っただけで変化があります。下図は 1 sec 間隔ですが 0.1 sec 間隔にするともっと精度が上がります。ラズパイと AP の間を歩くだけでも RSSI の減衰を確認できるので結構使えると個人的には思います。
 
 ![reduce RSSI](imgs/iwconfig_ss_1.png)
 
 個人個人それぞれの判定アルゴリズムを組み込めば、"ギリギリ" 人感センサーができます。異論は認めます。
 
-今回はサンプルとして、ある領域に侵入したら LED が光るするようにしました。が、iwconfig を 0.1sec 間隔で動かすと load avg が 0.7 くらいまで上がる時があり何か対策を考えないといけません。
+今回はサンプルとして、ある領域に侵入したら LED が光るようにしました(下図)。
 
 ![sample](imgs/IMG_0272.gif)
 
