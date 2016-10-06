@@ -11,7 +11,7 @@ If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 
 個人個人それぞれの判定アルゴリズムを組み込めば、"ギリギリ" 人感センサーができます。異論は認めます。
 
-今回はサンプルとして、ある領域に侵入したら LED が光るするようにしました。
+今回はサンプルとして、ある領域に侵入したら LED が光るするようにしました。が、iwconfig を 0.1sec 間隔で動かすと load avg が 0.7 くらいまで上がる時があり何か対策を考えないといけません。
 
 ![sample](imgs/IMG_0272.gif)
 
