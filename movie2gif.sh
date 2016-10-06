@@ -20,10 +20,12 @@ if [ $# -eq 1 ]; then
     echo "Converting temporary files to gif."
     convert -limit memory 10m -delay 10 "$USR_TMP_DIR"/tmp-*.jpg -define jpeg:size="$SIZE" -layers optimize -loop 0 tmp.gif
     #convert -limit memory 10m -delay 10 "$USR_TMP_DIR"/tmp-*.png -layers optimize -loop 0 tmp.gif
+
     #echo "Optimizing gif."
     #convert -limit memory 10m tmp.gif -fuzz 4% -layers optimize "$FILE_NAME".gif
+
     echo "Resizing gif."
-    convert -limit memory 10m tmp.gif -coalesce -scale 50% -deconstruct "$FILE_NAME".gif
+    convert -limit memory 10m tmp.gif -coalesce -scale 60% -deconstruct "$FILE_NAME".gif
 
     # Remove temporary files.
     echo "Remove temporary files."
