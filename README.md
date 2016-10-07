@@ -11,6 +11,7 @@ If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 - [Converting Animation Gif](#movie2gif.sh)
 
 
+<a name="Pseudo Motion Sensor"/>
 ## Pseudo Motion Sensor
 
 貧乏なので人感センサーを買えません。そこで考えたのが Wi-Fi の RSSI です。下図のように手で覆っただけで変化があります。下図は 1 sec 間隔ですが 0.1 sec 間隔にするともっと精度が上がります。ラズパイと AP の間を歩くだけでも RSSI の減衰を確認できるので結構使えると個人的には思います。
@@ -24,6 +25,7 @@ If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 ![sample](imgs/IMG_0272.gif)
 
 
+<a name="update.sh"/>
 ## update.sh
 
 upgrade packages and check firmware version and update firmware.
@@ -96,6 +98,7 @@ Finish update.
 ```
 
 
+<a name="cpu-config.sh"/>
 ## cpu-config.sh
 
 This script sets some CPU values.
@@ -128,6 +131,7 @@ Example 2;
 I recommend myondemand. And I do not recommend ondemand. Because up_threshold is 50 when ondemand. And cpu freq increases soon very much. Even if device is idling. So temperature also increases. Or if you change governor ondemand > performance > ondemand, up_threshold is 95. But sampling_down_factor is 50. So OS keeps overclock for a while. As the result of it, temperature become hot.
 
 
+<a name="raspi-stat.sh"/>
 ## raspi-stat.sh
 
 This script show status of Raspberry Pi 3. Statuses are OS name, version, CPU info, memory info, voltage. CPU info contains arm and core clock, temperature, governor, up threshold if governor is ondemand like that.
@@ -225,6 +229,7 @@ sdram_p          volt=1.2250V
 ```
 
 
+<a name="movie2git.sh"/>
 ## movie2gif.sh
 
 This is front-end script which converts movie file to optimized animation gif.
