@@ -5,7 +5,7 @@ If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 ## Table of Contents
 
 - [Pseudo Motion Sensor](#Pseudo Motion Sensor)
-- [Updating Script](#update-raspi.sh)
+- [Updating Script](#raspi-update.sh)
 - [CPU Configuration](#cpu-config.sh)
 - [Raspberry Pi Monitor](#raspi-stat.sh)
 - [Converting Animation Gif](#movie2gif.sh)
@@ -25,15 +25,15 @@ If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 ![sample](imgs/IMG_0272.gif)
 
 
-<a name="update-raspi.sh"></a>
-## update-raspi.sh
+<a name="raspi-update.sh"></a>
+## raspi-update.sh
 
 upgrade packages and check firmware version and update firmware.
 
 Usage:
 
 ```
-./update-raspi.sh
+./raspi-update.sh
 Checking packages...
 取得:1 http://mirrordirector.raspbian.org jessie InRelease [14.9 kB]
 
