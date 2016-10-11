@@ -2,30 +2,17 @@
 
 If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 
-## Table of Contents
 
-- [Pseudo Motion Sensor](#Pseudo Motion Sensor)
-- [Updating Script](#raspi-update.sh)
-- [CPU Configuration](#cpu-config.sh)
-- [Raspberry Pi Monitor](#raspi-stat.sh)
-- [Converting Animation Gif](#movie2gif.sh)
+## movie2gif.sh
 
+This is front-end script which converts movie file to optimized animation gif.
 
-<a name="Pseudo Motion Sensor"></a>
-## Pseudo Motion Sensor
+Usage:
 
-貧乏なので人感センサーを買えません。そこで考えたのが Wi-Fi の RSSI です。下図のように手で覆っただけで変化があります。下図は 1 sec 間隔ですが 0.1 sec 間隔にするともっと精度が上がります。ラズパイと AP の間を歩くだけでも RSSI の減衰を確認できるので結構使えると個人的には思います。
+```
+movie2gif.sh file
+```
 
-![reduce RSSI](imgs/iwconfig_ss_1.png)
-
-個人個人それぞれの判定アルゴリズムを組み込めば、"ギリギリ" 人感センサーができます。異論は認めます。
-
-今回はサンプルとして、ある領域に侵入したら LED が光るようにしました(下図)。
-
-![sample](imgs/IMG_0272.gif)
-
-
-<a name="raspi-update.sh"></a>
 ## raspi-update.sh
 
 upgrade packages and check firmware version and update firmware.
@@ -98,7 +85,6 @@ Finish update.
 ```
 
 
-<a name="cpu-config.sh"></a>
 ## cpu-config.sh
 
 This script sets some CPU values.
@@ -122,7 +108,7 @@ For example you can set crontab -e or /etc/crontab like that.
 @reboot    /home/pi/script/path/cpu-config.sh myondemand
 ```
 
-Example 2;
+Example 2
 
 ```
 ./cpu-config.sh performance
@@ -131,7 +117,6 @@ Example 2;
 I recommend myondemand. And I do not recommend ondemand. Because up_threshold is 50 when ondemand. And cpu freq increases soon very much. Even if device is idling. So temperature also increases. Or if you change governor ondemand > performance > ondemand, up_threshold is 95. But sampling_down_factor is 50. So OS keeps overclock for a while. As the result of it, temperature become hot.
 
 
-<a name="raspi-stat.sh"></a>
 ## raspi-stat.sh
 
 This script show status of Raspberry Pi 3. Statuses are OS name, version, CPU info, memory info, voltage. CPU info contains arm and core clock, temperature, governor, up threshold if governor is ondemand like that.
@@ -226,18 +211,6 @@ sdram_c          volt=1.2000V
 sdram_i          volt=1.2000V
 sdram_p          volt=1.2250V
 ===============  ==================
-```
-
-
-<a name="movie2git.sh"></a>
-## movie2gif.sh
-
-This is front-end script which converts movie file to optimized animation gif.
-
-Usage:
-
-```
-movie2gif.sh file
 ```
 
 
