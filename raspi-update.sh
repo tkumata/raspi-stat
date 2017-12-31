@@ -42,6 +42,7 @@ if [ "$(echo "$FIRM_CHECK" | grep -i "kernel: bump to")" ]; then
                 echo $c
                 if [ $c -eq 0 ]; then
                     echo "sudo reboot"
+                    sudo reboot
                 fi
                 sleep 1
             done
