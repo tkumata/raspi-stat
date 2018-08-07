@@ -2,17 +2,16 @@
 
 echo "Checking packages..."
 sudo apt-get update
-echo ""
+echo "Upgrading pachages..."
 sudo apt-get upgrade -y
-echo ""
-sudo apt-get dist-upgrade -y
-echo ""
+echo "Upgrading dist..."
+#sudo apt-get dist-upgrade -y
+echo "Removing packages..."
 sudo apt-get autoremove
-echo ""
+echo "Cleaning..."
 sudo apt-get autoclean
-echo ""
 
-echo "Load preset infinality."
+echo "Load... preset infinality."
 sudo /etc/fonts/infinality/infctl.sh setstyle osx
 
 echo "Checking firmware..."
