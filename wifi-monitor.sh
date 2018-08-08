@@ -15,5 +15,5 @@ then
     sleep 3
 
     echo $(date; iwgetid -r) >> reconnect.log
-    /sbin/ifconfig >> reconnect.log
+    #/sbin/ifconfig >> reconnect.log
 fi
