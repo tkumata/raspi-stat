@@ -1,6 +1,8 @@
 # Raspberry Pi 3 Some Tools for me
 
-If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
+If you set to force\_turbo=1 in /boot/config.txt, these scripts are useless.
+
+This project is my memo. So please ignore this project.
 
 
 ## movie2gif.sh
@@ -229,6 +231,13 @@ $ dig www.google.com
 Browser can not access some web site.
 ```
 So I need restarter.
+
+## wifi-monitor.sh
+
+crontab -e
+```
+*/3 * * * * bash ~/bin/raspi-stat/wifi-monitor.sh > /dev/null 2>&1 &
+```
 
 ## License
 
