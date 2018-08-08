@@ -13,7 +13,8 @@ then
 
     # Turn off power management for RPi3 WiFi.
     sudo iw dev wlan0 set power_save off
-    #
+
+    # RPi3 wifi dead after AP rebooting. Try following but workaround is nothing.
     sudo ifdown --force eth0
     sudo ifdown --force wlan0
     sudo systemctl daemon-reload
@@ -22,11 +23,13 @@ then
     sudo systemctl restart wpa_supplicant.service
     wpa_cli -i wlan0 reconfigure
 
+    # Log
     echo $(date; iwgetid -r) >> reconnect.log
     #ifconfig wlan0 >> reconnect.log
     #iwconfig wlan0 >> reconnect.log
     #systemctl status >> recoonect.log
 
+    # So give up.
     if ifconfig wlan0 | grep '192.168.2.1' > /dev/null
     then
         echo "OK." >> reconnect.log
