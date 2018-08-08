@@ -232,12 +232,11 @@ Browser can not access some web site.
 ```
 So I need restarter.
 
-## wifi-monitor.sh
-
 crontab -e
 ```
-*/3 * * * * bash ~/bin/raspi-stat/wifi-monitor.sh > /dev/null 2>&1 &
+*/3 * * * * bash $HOME/bin/raspi-stat/wifi-monitor.sh > /dev/null 2>&1 &
 ```
+
 
 ## License
 
