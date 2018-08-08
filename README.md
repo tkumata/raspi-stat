@@ -1,4 +1,4 @@
-# Raspberry Pi 3 Some Tools
+# Raspberry Pi 3 Some Tools for me
 
 If you set to force_turbo=1 in /boot/config.txt, these scripts are useless.
 
@@ -213,6 +213,22 @@ sdram_p          volt=1.2250V
 ===============  ==================
 ```
 
+## wifi-monitor.sh
+
+Elecom WRC-300FEBK is no good so much. This is rubbish. When I re-configured something, this makes stop dhcp or UDP 53 or https randomly. And wlan0 and avahi-daemon dead on Raspberry PI. For example I can not following on Mac.
+```
+$ ssh user@xxx.xxx.xxx.xxx
+ssh: connect to host xxx.xxx.xxx.xxx port 22: Operation timed out
+
+$ dig www.google.com
+
+; <<>> DiG 9.10.6 <<>> www.google.com
+;; global options: +cmd
+;; connection timed out; no servers could be reached
+
+Browser can not access some web site.
+```
+So I need restarter.
 
 ## License
 
