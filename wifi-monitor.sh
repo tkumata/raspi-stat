@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 # Check.
 ping -c2 www.google.com > /dev/null
