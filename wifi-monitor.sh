@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo /sbin/iw dev wlan0 set power_save off
 ping -c2 www.google.com > /dev/null
 
 if [ $? != 0 ]
@@ -11,6 +12,7 @@ then
     sudo /etc/init.d/networking restart
     sudo systemctl restart avahi-daemon.service
     sudo systemctl restart wpa_supplicant.service
+    wpa_cli -i wlan0 reconfigure
 
     echo $(date; iwgetid -r) >> reconnect.log
     #/sbin/ifconfig >> reconnect.log
