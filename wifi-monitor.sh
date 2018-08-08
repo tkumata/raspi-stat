@@ -1,7 +1,15 @@
 #!/bin/bash
+set -e
+
+# Turn off power management for RPi3 WiFi.
 sudo /sbin/iw dev wlan0 set power_save off
+
+# Check.
 ping -c2 www.google.com > /dev/null
 
+# $? is return code of previous latest command.
+# 0 is true.
+# non-zero is false.
 if [ $? != 0 ]
 then
     sleep 30
