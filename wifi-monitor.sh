@@ -7,6 +7,7 @@
 site='www.google.com'
 count=0
 threshold=3
+myipaddr="192.168.2."
 
 while :
 do
@@ -26,11 +27,11 @@ do
         # Turn off power management for RPi3 WiFi.
         sudo iw dev wlan0 set power_save off
 
-        # RPi3 wifi dead after AP rebooting. Try following but workaround is nothing.
+        # RPi3 wifi dead after AP rebooting. I tried following but workarounds were nothing.
         sudo ifdown --force eth0
         sudo ifdown --force wlan0
         sudo systemctl daemon-reload
-        # sudo /etc/init.d/networking restart
+        sudo /etc/init.d/networking restart
         sudo systemctl stop dhcpcd.service
         sudo systemctl restart networking.service
         sudo systemctl restart avahi-daemon.service
@@ -41,21 +42,21 @@ do
 
         # Log
         # echo $(date; iwgetid -r) >> reconnect.log
-        # ifconfig >> reconnect.log
+        ifconfig >> reconnect.log
         # iwconfig >> reconnect.log
         # systemctl status >> reconnect.log
 
         sleep 5
 
-        # So give up.
-        if ifconfig wlan0 | grep '192.168.2.1' > /dev/null
+        # So I give up!
+        if ifconfig wlan0 | grep $myipaddr > /dev/null
         then
-            echo $(date; iwgetid -r; echo "OK.") >> reconnect.log
+            echo $(date; echo "SSID:"; iwgetid -r; echo "OK.") >> reconnect.log
         else
-            echo $(date; iwgetid -r; echo "NG.") >> reconnect.log
+            echo $(date; echo "SSID:"; iwgetid -r; echo "NG.") >> reconnect.log
 
             if [ $count -eq $threshold ]; then
-                echo $(date; iwgetid -r; echo "Reboot.") >> reconnect.log
+                echo $(date; echo "SSID:"; iwgetid -r; echo "Reboot.") >> reconnect.log
                 sudo reboot
             fi
         fi
