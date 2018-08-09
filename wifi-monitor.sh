@@ -9,6 +9,9 @@ count=0
 threshold=3
 myipaddr="192.168.2."
 
+# Wait connect WiFi.
+sleep 24
+
 while :
 do
     # Check.
@@ -41,7 +44,7 @@ do
         wpa_cli -i wlan0 reconfigure
 
         # Log
-        # echo $(date; iwgetid -r) >> reconnect.log
+        echo $(date; iwgetid -r) >> reconnect.log
         ifconfig >> reconnect.log
         # iwconfig >> reconnect.log
         # systemctl status >> reconnect.log
