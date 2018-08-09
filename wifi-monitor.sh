@@ -43,7 +43,7 @@ do
         # echo $(date; iwgetid -r) >> reconnect.log
         # ifconfig >> reconnect.log
         # iwconfig >> reconnect.log
-        # systemctl status >> recoonect.log
+        # systemctl status >> reconnect.log
 
         sleep 5
 
