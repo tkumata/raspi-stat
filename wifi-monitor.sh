@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # DONOT forget following.
-# echo '@reboot nohup $HOME/bin/raspi-stat/wifi-monitor.sh >/dev/null 2>&1 &' | crontab
+# @reboot nohup $HOME/bin/raspi-stat/wifi-monitor.sh >/dev/null 2>&1 &
 #
 
 site='www.google.com'

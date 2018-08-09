@@ -233,7 +233,7 @@ Browser can not access some web site but it can access some web site.
 So I need restarter.
 
 ```
-echo '@reboot nohup $HOME/bin/raspi-stat/wifi-monitor.sh >/dev/null 2>&1 &' | crontab
+@reboot nohup $HOME/bin/raspi-stat/wifi-monitor.sh >/dev/null 2>&1 &
 ```
 
 
