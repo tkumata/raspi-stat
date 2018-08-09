@@ -228,13 +228,12 @@ $ dig www.google.com
 ;; global options: +cmd
 ;; connection timed out; no servers could be reached
 
-Browser can not access some web site.
+Browser can not access some web site but it can access some web site.
 ```
 So I need restarter.
 
-crontab -e
 ```
-*/3 * * * * bash $HOME/bin/raspi-stat/wifi-monitor.sh > /dev/null 2>&1 &
+echo '@reboot nohup $HOME/bin/raspi-stat/wifi-monitor.sh >/dev/null 2>&1 &' | crontab
 ```
 
 
